@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Areas | Dwangwa & Partners | Premier Law Firm in Malawi</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Century+Gothic:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /********** Template CSS **********/
+        :root {
+            --primary: #FF6F0F;
+            --secondary: #FFF0E6;
+            --light: #F8F8F9;
+            --dark: #001D23;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Century Gothic', sans-serif;
+            line-height: 1.6;
+            color: #444;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Century Gothic', sans-serif;
+            font-weight: 700;
+        }
+
+        .navbar-brand {
+            font-family: 'Century Gothic', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: var(--primary) !important;
+        }
+
+        .back-to-top {
+            position: fixed;
+            display: none;
+            right: 30px;
+            bottom: 30px;
+            z-index: 99;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background: #e65c00;
+            transform: translateY(-3px);
+        }
+
+        /*** Spinner ***/
+        #spinner {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .5s ease-out, visibility 0s linear .5s;
+            z-index: 99999;
+        }
+
+        #spinner.show {
+            transition: opacity .5s ease-out, visibility 0s linear 0s;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /*** Button ***/ 
+        .btn {
+            font-weight: 500;
+            transition: .5s;
+            padding: 12px 30px;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: #FFFFFF;
+        }
+
+        .btn-primary:hover {
+            color: var(--primary);
+            background: transparent;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 111, 15, 0.3);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            background-color: transparent;
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            color: #FFFFFF;
+            background-color: var(--primary);
+        }
+
+        /*** Top Bar ***/
+        .top-bar {
+            background: var(--dark);
+            color: white;
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar small {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .top-bar i {
+            color: var(--primary);
+            margin-right: 5px;
+        }
+
+        /*** Navbar ***/
+        .navbar {
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar.sticky-top {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--dark);
+            font-weight: 500;
+            margin: 0 15px;
+            padding: 10px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary);
+        }
+
+        .navbar-nav .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /*** Page Header ***/
+        .page-header {
+            background: linear-gradient(rgba(0, 29, 35, .9), rgba(0, 29, 35, .95)), 
+                        url('https://images.unsplash.com/photo-1589391886085-8b6b0ac72a1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80') center center no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 150px 0 80px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-header .breadcrumb {
+            background: transparent;
+            margin-bottom: 0;
+        }
+
+        .page-header .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+        }
+
+        .page-header .breadcrumb-item.active {
+            color: var(--primary);
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /*** Practice Areas Overview ***/
+        .practice-overview {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .practice-overview h2 {
+            color: var(--dark);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .practice-overview h2:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .practice-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            margin-bottom: 30px;
+        }
+
+        .practice-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .practice-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 25px;
+        }
+
+        .practice-card h4 {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .practice-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        /*** Detailed Practice Areas ***/
+        .practice-details {
+            padding: 100px 0;
+        }
+
+        .practice-details h2 {
+            color: var(--dark);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .practice-details h2:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .practice-item {
+            margin-bottom: 80px;
+            padding-top: 50px;
+        }
+
+        .practice-item:target {
+            padding-top: 120px;
+            margin-top: -70px;
+        }
+
+        .practice-content {
+            background: white;
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .practice-number {
+            position: absolute;
+            top: -30px;
+            left: 40px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .practice-content h3 {
+            color: var(--dark);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .practice-services {
+            margin-top: 30px;
+        }
+
+        .service-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .service-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .practice-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .practice-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .practice-img:hover img {
+            transform: scale(1.05);
+        }
+
+        /*** Process Section ***/
+        .process-section {
+            background: var(--light);
+            padding: 100px 0;
+        }
+
+        .process-section h2 {
+            color: var(--dark);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .process-section h2:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .process-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h4 {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .process-line {
+            position: absolute;
+            top: 75px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .process-step:last-child .process-line {
+            display: none;
+        }
+
+        /*** FAQ Section ***/
+        .faq-section {
+            padding: 100px 0;
+        }
+
+        .faq-section h2 {
+            color: var(--dark);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .faq-section h2:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: var(--light);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--secondary);
+        }
+
+        .faq-question h5 {
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .faq-icon {
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.show {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        /*** CTA Section ***/
+        .cta-section {
+            background: linear-gradient(rgba(0, 29, 35, .9), rgba(0, 29, 35, .95)), 
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80') center center no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 100px 0;
+            color: white;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /*** Footer ***/
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 20px;
+        }
+
+        .footer h4 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .footer .btn-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .footer .btn-link:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            margin-top: 50px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /*** Responsive ***/
+        @media (max-width: 991.98px) {
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .page-header {
+                padding: 120px 0 60px;
+            }
+            
+            .practice-overview,
+            .practice-details,
+            .process-section,
+            .faq-section {
+                padding: 80px 0;
+            }
+            
+            .process-line {
+                display: none;
+            }
+            
+            .process-step {
+                margin-bottom: 30px;
+            }
+            
+            .practice-content {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .practice-overview h2,
+            .practice-details h2,
+            .process-section h2,
+            .faq-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .practice-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .practice-number {
+                top: -20px;
+                left: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Spinner -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="d-flex flex-wrap">
+                        <div class="me-4">
+                            <small><i class="fa fa-phone-alt"></i>+265 881 234 567</small>
+                        </div>
+                        <div class="me-4">
+                            <small><i class="fa fa-envelope"></i>info@dwangwapartners.mw</small>
+                        </div>
+                        <div>
+                            <small><i class="fa fa-map-marker-alt"></i>Area 43, Lilongwe, Malawi</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <div class="d-flex justify-content-end">
+                        <small><i class="fa fa-clock me-2"></i>Mon-Fri: 8:00am-5:00pm</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar (Matching index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <h2 class="m-0">Dwangwa & Partners</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="practice-areas.html" class="nav-item nav-link active">Practice Areas</a>
+                    <a href="attorneys.html" class="nav-item nav-link">Attorneys</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="#consultationModal" class="btn btn-primary ms-3" data-bs-toggle="modal">Book Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 data-aos="fade-up">Our Practice Areas</h1>
+                    <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="100">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Practice Areas</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Practice Areas Overview -->
+    <div class="practice-overview">
+        <div class="container">
+            <h2 data-aos="fade-up">Comprehensive Legal Services</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="practice-card">
+                        <div class="practice-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h4>Corporate Law</h4>
+                        <p>Expert legal guidance for businesses of all sizes in Malawi, from formation to complex transactions.</p>
+                        <a href="#corporate" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="practice-card">
+                        <div class="practice-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h4>Real Estate Law</h4>
+                        <p>Comprehensive property law services for buyers, sellers, developers, and investors in Malawi.</p>
+                        <a href="#real-estate" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="practice-card">
+                        <div class="practice-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Family Law</h4>
+                        <p>Sensitive and professional handling of family matters with empathy and legal expertise.</p>
+                        <a href="#family" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="practice-card">
+                        <div class="practice-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h4>Civil Litigation</h4>
+                        <p>Aggressive representation in court proceedings and dispute resolution across Malawi.</p>
+                        <a href="#litigation" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="practice-card">
+                        <div class="practice-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h4>Employment Law</h4>
+                        <p>Guidance for employers and employees on workplace rights, contracts, and disputes.</p>
+                        <a href="#employment" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="practice-card">
+                        <div class="practice-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Intellectual Property</h4>
+                        <p>Protection of trademarks, copyrights, patents, and trade secrets under Malawian law.</p>
+                        <a href="#intellectual-property" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Practice Areas -->
+    <div class="practice-details">
+        <div class="container">
+            <h2 data-aos="fade-up">Detailed Practice Areas</h2>
+            
+            <!-- Corporate Law -->
+            <div class="practice-item" id="corporate" data-aos="fade-up">
+                <div class="practice-content">
+                    <div class="practice-number">01</div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h3>Corporate Law</h3>
+                            <p>Our corporate law team provides comprehensive legal services to businesses operating in Malawi. We assist with company formation, corporate governance, mergers and acquisitions, joint ventures, and regulatory compliance. Our expertise extends to both local and international corporations doing business in Malawi.</p>
+                            
+                            <div class="practice-services">
+                                <h5>Services Include:</h5>
+                                <ul class="service-list">
+                                    <li>Company registration and incorporation</li>
+                                    <li>Corporate governance and compliance</li>
+                                    <li>Mergers, acquisitions, and restructuring</li>
+                                    <li>Commercial contracts and agreements</li>
+                                    <li>Shareholder agreements and disputes</li>
+                                    <li>Corporate financing and securities</li>
+                                    <li>Business licensing and regulatory compliance</li>
+                                    <li>Corporate due diligence and risk assessment</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="practice-img">
+                                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Law">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real Estate Law -->
+            <div class="practice-item" id="real-estate" data-aos="fade-up" data-aos-delay="100">
+                <div class="practice-content">
+                    <div class="practice-number">02</div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h3>Real Estate Law</h3>
+                            <p>Our real estate practice covers all aspects of property law in Malawi. We represent buyers, sellers, developers, landlords, and tenants in residential and commercial transactions. Our team has extensive experience with land title transfers, lease agreements, property development, and real estate disputes.</p>
+                            
+                            <div class="practice-services">
+                                <h5>Services Include:</h5>
+                                <ul class="service-list">
+                                    <li>Property purchase and sale agreements</li>
+                                    <li>Lease and rental agreements</li>
+                                    <li>Title searches and due diligence</li>
+                                    <li>Property development and zoning</li>
+                                    <li>Real estate financing and mortgages</li>
+                                    <li>Landlord-tenant disputes</li>
+                                    <li>Property boundary and easement issues</li>
+                                    <li>Real estate investment structuring</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="practice-img">
+                                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Real Estate Law">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Family Law -->
+            <div class="practice-item" id="family" data-aos="fade-up" data-aos-delay="200">
+                <div class="practice-content">
+                    <div class="practice-number">03</div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h3>Family Law</h3>
+                            <p>We approach family law matters with sensitivity and compassion, providing expert legal guidance during emotionally challenging times. Our family law attorneys handle divorce, child custody, adoption, and domestic relations matters with professionalism and discretion, always prioritizing the best interests of families and children.</p>
+                            
+                            <div class="practice-services">
+                                <h5>Services Include:</h5>
+                                <ul class="service-list">
+                                    <li>Divorce and separation proceedings</li>
+                                    <li>Child custody and visitation arrangements</li>
+                                    <li>Child and spousal support</li>
+                                    <li>Adoption and guardianship</li>
+                                    <li>Prenuptial and postnuptial agreements</li>
+                                    <li>Domestic violence protection orders</li>
+                                    <li>Paternity establishment</li>
+                                    <li>Family mediation and dispute resolution</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="practice-img">
+                                <img src="family-law.jpg" alt="Family Law">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Civil Litigation -->
+            <div class="practice-item" id="litigation" data-aos="fade-up" data-aos-delay="300">
+                <div class="practice-content">
+                    <div class="practice-number">04</div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h3>Civil Litigation</h3>
+                            <p>Our litigation team provides aggressive representation in courts throughout Malawi. We handle a wide range of civil disputes, from commercial litigation to personal injury claims. Our attorneys are skilled negotiators and trial lawyers who work diligently to achieve favorable outcomes for our clients.</p>
+                            
+                            <div class="practice-services">
+                                <h5>Services Include:</h5>
+                                <ul class="service-list">
+                                    <li>Commercial and business disputes</li>
+                                    <li>Contract disputes and breach of contract</li>
+                                    <li>Personal injury claims</li>
+                                    <li>Professional malpractice</li>
+                                    <li>Construction disputes</li>
+                                    <li>Debt collection and enforcement</li>
+                                    <li>Alternative dispute resolution (ADR)</li>
+                                    <li>Appellate advocacy</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="practice-img">
+                                <img src="news1.jpg" alt="Civil Litigation">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employment Law -->
+            <div class="practice-item" id="employment" data-aos="fade-up" data-aos-delay="400">
+                <div class="practice-content">
+                    <div class="practice-number">05</div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h3>Employment Law</h3>
+                            <p>We provide comprehensive employment law services to both employers and employees in Malawi. Our team advises on compliance with labor laws, employment contracts, workplace policies, and dispute resolution. We help create productive work environments while protecting the rights of all parties involved.</p>
+                            
+                            <div class="practice-services">
+                                <h5>Services Include:</h5>
+                                <ul class="service-list">
+                                    <li>Employment contracts and handbooks</li>
+                                    <li>Workplace policies and procedures</li>
+                                    <li>Wrongful termination claims</li>
+                                    <li>Discrimination and harassment cases</li>
+                                    <li>Wage and hour disputes</li>
+                                    <li>Workers' compensation</li>
+                                    <li>Labor union relations</li>
+                                    <li>Employment compliance audits</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="practice-img">
+                                <img src="employment-law.jpg" alt="Employment Law">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intellectual Property -->
+            <div class="practice-item" id="intellectual-property" data-aos="fade-up" data-aos-delay="500">
+                <div class="practice-content">
+                    <div class="practice-number">06</div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h3>Intellectual Property</h3>
+                            <p>Our intellectual property practice helps clients protect their innovations, brands, and creative works. We handle trademark and copyright registration, patent applications, IP licensing, and enforcement actions. We work with businesses, artists, and inventors to safeguard their intellectual assets in Malawi and internationally.</p>
+                            
+                            <div class="practice-services">
+                                <h5>Services Include:</h5>
+                                <ul class="service-list">
+                                    <li>Trademark registration and protection</li>
+                                    <li>Copyright registration and enforcement</li>
+                                    <li>Patent applications and prosecution</li>
+                                    <li>IP licensing and agreements</li>
+                                    <li>Trade secret protection</li>
+                                    <li>IP due diligence for transactions</li>
+                                    <li>Domain name disputes</li>
+                                    <li>Anti-counterfeiting and enforcement</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="practice-img">
+                                <img src="corporate.jpg" alt="Intellectual Property">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Process Section -->
+    <div class="process-section">
+        <div class="container">
+            <h2 data-aos="fade-up">Our Legal Process</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                        <div class="process-number">1</div>
+                        <div class="process-line"></div>
+                        <h4>Initial Consultation</h4>
+                        <p>We begin with a confidential consultation to understand your legal needs and objectives.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                        <div class="process-number">2</div>
+                        <div class="process-line"></div>
+                        <h4>Case Evaluation</h4>
+                        <p>Our team conducts thorough research and analysis to develop the best legal strategy.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                        <div class="process-number">3</div>
+                        <div class="process-line"></div>
+                        <h4>Strategic Planning</h4>
+                        <p>We create a customized action plan with clear objectives and timelines.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                        <div class="process-number">4</div>
+                        <h4>Execution & Resolution</h4>
+                        <p>We implement the strategy and work diligently to achieve the best possible outcome.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+        <div class="container">
+            <h2 data-aos="fade-up">Frequently Asked Questions</h2>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h5>How do I know which practice area I need?</h5>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>During your initial consultation, our attorneys will assess your situation and recommend the appropriate practice area. Many legal matters involve multiple areas of law, and our team works collaboratively to provide comprehensive solutions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h5>What are your billing arrangements?</h5>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer flexible billing options including hourly rates, flat fees, and contingency fees depending on the practice area and case complexity. All billing arrangements are discussed and agreed upon before we begin work on your case.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h5>How long do legal matters typically take?</h5>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The duration varies significantly based on the practice area and complexity of the matter. Simple document reviews may take days, while complex litigation can take months or years. We provide realistic timelines during our initial consultation.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h5>Do you handle cases outside of Malawi?</h5>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we handle international matters involving Malawian law and collaborate with foreign law firms on cross-border transactions. Our attorneys have experience with international legal frameworks and can coordinate with counsel in other jurisdictions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h5>What information should I bring to my first meeting?</h5>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Bring any relevant documents, contracts, correspondence, court documents, identification, and notes about your situation. The more information you can provide, the better we can assess your case and provide accurate advice.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h5>Do you offer pro bono services?</h5>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we are committed to giving back to the community and accept a limited number of pro bono cases each year, focusing on public interest matters and underserved populations in Malawi. Contact us to discuss eligibility.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="display-5 mb-4">Need Legal Assistance in Malawi?</h2>
+                    <p class="fs-5 mb-4">Contact our experienced legal team today to discuss your specific needs and learn how we can help you achieve your objectives.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="#consultationModal" class="btn btn-primary px-5 py-3" data-bs-toggle="modal">Book Consultation</a>
+                        <a href="attorneys.html" class="btn btn-outline-primary px-5 py-3">Meet Our Attorneys</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="mb-4">Dwangwa & Partners</h4>
+                    <p class="mb-4">Providing exceptional legal representation with integrity, expertise, and dedication to client success across Malawi.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="practice-areas.html">Practice Areas</a>
+                    <a class="btn btn-link" href="attorneys.html">Our Attorneys</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="mb-4">Practice Areas</h4>
+                    <a class="btn btn-link" href="practice-areas.html#corporate">Corporate Law</a>
+                    <a class="btn btn-link" href="practice-areas.html#real-estate">Real Estate Law</a>
+                    <a class="btn btn-link" href="practice-areas.html#family">Family Law</a>
+                    <a class="btn btn-link" href="practice-areas.html#litigation">Civil Litigation</a>
+                    <a class="btn btn-link" href="practice-areas.html#employment">Employment Law</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="mb-4">Contact Info</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Area 43, Lilongwe, Malawi</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+265 881 234 567</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@dwangwapartners.mw</p>
+                    <p class="mb-0"><i class="fa fa-clock me-3"></i>Mon-Fri: 8:00am-5:00pm</p>
+                </div>
+            </div>
+            <div class="copyright text-center">
+                <p class="mb-0">&copy; <span id="currentYear"></span> Dwangwa & Partners. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- Consultation Modal -->
+    <div class="modal fade" id="consultationModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Schedule a Consultation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="consultationForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Phone Number" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" required>
+                                <option value="">Select Practice Area</option>
+                                <option>Corporate Law</option>
+                                <option>Real Estate Law</option>
+                                <option>Family Law</option>
+                                <option>Civil Litigation</option>
+                                <option>Intellectual Property</option>
+                                <option>Employment Law</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="3" placeholder="Case Details"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Spinner
+        var spinner = function () {
+            setTimeout(function () {
+                if ($('#spinner').length > 0) {
+                    $('#spinner').removeClass('show');
+                }
+            }, 1);
+        };
+        spinner();
+        
+        // Back to top button
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $('.back-to-top').fadeIn('slow');
+            } else {
+                $('.back-to-top').fadeOut('slow');
+            }
+        });
+        
+        $('.back-to-top').click(function () {
+            $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+            return false;
+        });
+
+        // Navbar on scroll
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 45) {
+                $('.navbar').addClass('sticky-top shadow');
+            } else {
+                $('.navbar').removeClass('sticky-top shadow');
+            }
+        });
+
+        // Set current year in footer
+        $('#currentYear').text(new Date().getFullYear());
+
+        // Smooth scrolling for practice area links
+        $('a[href^="#"]').on('click', function(e) {
+            if (this.hash !== "") {
+                e.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top - 100
+                }, 800);
+            }
+        });
+
+        // FAQ Toggle Functionality
+        $('.faq-question').click(function() {
+            var $answer = $(this).next('.faq-answer');
+            var $icon = $(this).find('.faq-icon');
+            
+            // Close other open FAQs
+            $('.faq-answer').not($answer).removeClass('show');
+            $('.faq-question').not($(this)).removeClass('active');
+            $('.faq-question').not($(this)).find('.faq-icon').text('+');
+            
+            // Toggle current FAQ
+            $(this).toggleClass('active');
+            $answer.toggleClass('show');
+            $icon.text($(this).hasClass('active') ? '−' : '+');
+        });
+
+        // Modal Form Submission
+        $('#consultationForm').submit(function(e) {
+            e.preventDefault();
+            
+            // Form validation
+            var valid = true;
+            $(this).find('input[required], select[required]').each(function() {
+                if (!$(this).val()) {
+                    valid = false;
+                    $(this).addClass('is-invalid');
+                } else {
+                    $(this).removeClass('is-invalid');
+                }
+            });
+            
+            if (valid) {
+                // Show success message
+                $('#consultationModal .modal-body').html(`
+                    <div class="text-center py-5">
+                        <i class="fas fa-check-circle text-success display-1 mb-4"></i>
+                        <h4 class="text-success mb-3">Request Submitted Successfully!</h4>
+                        <p class="mb-4">We will contact you within 24 hours to schedule your consultation.</p>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                `);
+                
+                // Reset form after modal closes
+                setTimeout(() => {
+                    $('#consultationModal').modal('hide');
+                    setTimeout(() => {
+                        $('#consultationModal .modal-body').html(`
+                            <form id="consultationForm">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Full Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Email Address" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" class="form-control" placeholder="Phone Number" required>
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-select" required>
+                                        <option value="">Select Practice Area</option>
+                                        <option>Corporate Law</option>
+                                        <option>Real Estate Law</option>
+                                        <option>Family Law</option>
+                                        <option>Civil Litigation</option>
+                                        <option>Intellectual Property</option>
+                                        <option>Employment Law</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="3" placeholder="Case Details"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Submit Request</button>
+                            </form>
+                        `);
+                        // Re-attach the submit handler
+                        $('#consultationForm').submit(arguments.callee);
+                    }, 500);
+                }, 3000);
+            }
+        });
+    </script>
+        <!-- Notice Popup Script -->
+    <script>
+        // Check if user has already closed the notice
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        // Show notice popup if not already closed
+        function showNoticePopup() {
+            const noticeClosed = getCookie('noticeClosed');
+            
+            if (!noticeClosed) {
+                // Wait for page to load completely
+                setTimeout(function() {
+                    const popupWidth = 650;
+                    const popupHeight = 700;
+                    const left = (window.screen.width - popupWidth) / 2;
+                    const top = (window.screen.height - popupHeight) / 2;
+                    
+                    // Open popup window
+                    window.open(
+                        'notice.html',
+                        'Disclaimer Notice',
+                        `width=${popupWidth},height=${popupHeight},left=${left},top=${top},resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,status=no`
+                    );
+                }, 1000); // 1 second delay
+            }
+        }
+
+        // Run when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Don't show on notice.html itself
+            if (window.location.pathname.indexOf('notice.html') === -1) {
+                showNoticePopup();
+            }
+        });
+    </script>
+</body>
+</html>
